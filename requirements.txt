@@ -1,0 +1,8 @@
+pandas
+numpy
+scipy
+requests
+flask
+flask-cors
+flask-wtf
+gunicorn
