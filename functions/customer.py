@@ -18,16 +18,13 @@ def address_maker(row, num_of_rows):
 def income_maker(row):
     age = row['age']
     if 0.98 * math.sin(1.26 * math.log(18 * age - 150)) < random.random():
-        return pd.NA
+        return 0
     mean_income = (-1.5 * age ** 2) + (160 * age) - 800
     std_dev = 800 * math.log(age - 16)
     skewness = round((-1/500) * age ** 2 + 0.25 * age)
     return int(round(skewnorm.rvs(skewness, loc=mean_income, scale=std_dev, size=1)[0], -2))
 
 def add_credit_limit_flag_up(row):
-
-    if not isinstance(row['income'], int):
-        return pd.NA, pd.NA
     
     yearly_income = row['income'] * 12
     monthly_income = row['income']
